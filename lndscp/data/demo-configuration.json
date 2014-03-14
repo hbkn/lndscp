@@ -1,0 +1,82 @@
+{
+  "camelCaseBase": false,
+  "idName": "ID",
+  "keyName": "Key",
+  "valueName": "Value",
+  "nameName": "Name",
+  
+  "objectTypes" : [
+    {
+      "name": "ApplicationComponent",
+      "attributeDescriptions": [
+         {
+           "name": "Name",
+           "index": 5,
+           "attributeType": "Text"
+         },
+         {
+           "name": "ID",
+           "index": 6,
+           "attributeType": "Text"
+         },
+         {
+           "name": "Description",
+           "index": 7,
+           "attributeType": "Text"
+         },      
+         {
+           "name": "Status",
+           "index": 0,
+           "attributeType": "Text"
+         },
+         {
+           "name": "Links",
+           "index": 14,
+           "attributeType": "Text",
+           "multipleAllowed": true
+         }
+       ] 
+    },
+    {
+      "name": "Service",
+      "attributeDescriptions": [
+         {
+           "name": "ID",
+           "index": 0,
+           "attributeType": "Text"
+         },
+         {
+           "name": "Name",
+           "index": 1,
+           "attributeType": "Text"
+         },
+         {
+           "name": "Provider",
+           "index": 2,
+           "attributeType": "Text"
+         },
+         {
+           "name": "Requestors",
+           "index": 3,
+           "attributeType": "Text",
+           "multipleAllowed": true           
+         },
+         {
+           "name": "Description",
+           "index": 4,
+           "attributeType": "Text"
+         },
+         {
+           "name": "Type",
+           "index": 5,
+           "attributeType": "Text"
+         },
+         {
+           "name": "RequestPayload",
+           "index": 6,
+           "attributeType": "LinkWithDescription"
+         }         
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "GetPeopleJSONResult": {
+    "People": [
+      {
+        "Attributes": [
+          {
+            "Key": "ID",
+            "Value": "1"
+          },
+          {
+            "Key": "FirstName",
+            "Value": "Keith"
+          },
+          {
+            "Key": "LastName",
+            "Value": "Richards"
+          }
+        ]
+      },
+      {
+        "Attributes": [
+          {
+            "Key": "ID",
+            "Value": "2"
+          },
+          {
+            "Key": "FirstName",
+            "Value": "Mick"
+          },
+          {
+            "Key": "LastName",
+            "Value": "Jagger"
+          }
+        ]
+      },
+      {
+        "Attributes": [
+          {
+            "Key": "ID",
+            "Value": "3"
+          },
+          {
+            "Key": "FirstName",
+            "Value": "Charlie"
+          },
+          {
+            "Key": "LastName",
+            "Value": "Watts"
+          },
+      {
+        "Attributes": [
+          {
+            "Key": "ID",
+            "Value": "4"
+          },
+          {
+            "Key": "FirstName",
+            "Value": "Brian"
+          },
+          {
+            "Key": "LastName",
+            "Value": "Jones"
+          },
+      {
+        "Attributes": [
+          {
+            "Key": "ID",
+            "Value": "5"
+          },
+          {
+            "Key": "FirstName",
+            "Value": "Bill"
+          },
+          {
+            "Key": "LastName",
+            "Value": "Wyman"
+          }          
+        ]
+      }      
+      
+    ]
+  }
+}

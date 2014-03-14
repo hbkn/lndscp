@@ -1,0 +1,41 @@
+{
+  "GetServicesJSONResult": {
+    "Services": [
+      {
+        "Attributes": [
+          {
+            "Key": "ID",
+            "Value": "1"
+          },
+          {
+            "Key": "Name",
+            "Value": "SomeServiceName:10"
+          },        
+          {
+            "Key": "Provider",
+            "Value": "Stick Fingers"
+          },
+          {
+            "Key": "Requestors",
+            "Value": [
+              "Some Girls",
+              "Exile on Main Street"
+            ]
+          },
+          {
+            "Key": "Type",
+            "Value": "request-reply"
+          },
+          {
+            "Key": "RequestPayload",
+            "Value": {
+              "name": "some name request payload",
+              "link": "http://www.google.com",
+              "description": "This is the request payload used as input for some service..."
+            }
+          }          
+        ]
+      }
+    ]
+  }
+}

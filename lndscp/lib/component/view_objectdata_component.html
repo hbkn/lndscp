@@ -1,0 +1,17 @@
+<div id='myDiv'>
+  <h3>{{cmp.data.getAttVal('Name')}}</h3>
+    <div><strong>ID: </strong>{{cmp.data.id}}</div>
+    <ul>    
+      <li ng-repeat="att in cmp.attributes">
+<!--        <view-attributevalue objectattribute="att"></view-attributevalue> -->
+        <view-attributevalue objectattribute="att" readonly="cmp.readonly"></view-attributevalue>
+      </li>
+    </ul>
+  <span ng-if="cmp.hasEditLink">    
+    <a class="extra-space" href="{{cmp.editLink}}">
+      <input type="button" value="Edit">
+    </a>
+  </span> 
+  
+  
+</div>

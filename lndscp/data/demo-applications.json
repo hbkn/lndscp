@@ -1,0 +1,87 @@
+{
+  "GetApplicationsJSONResult": {
+    "ApplicationComponents": [
+      {
+        "Attributes": [
+          {
+            "Key": "ID",
+            "Value": "1"
+          },
+          {
+            "Key": "Name",
+            "Value": "Sticky Fingers"
+          },
+          {
+            "Key": "Description",
+            "Value": "A record that has been recorded in the beginning of the seventies."
+          },
+          {
+            "Key": "Status",
+            "Value": "In Production"
+          },
+          {
+            "Key": "Links",
+            "Value": [
+              "http://www.abcde.com",
+              "http://www.uvwxyz.com"
+            ]
+          }
+        ]
+      },
+{
+        "Attributes": [
+          {
+            "Key": "ID",
+            "Value": "2"
+          },
+          {
+            "Key": "Name",
+            "Value": "Exile on Main Street"
+          },
+          {
+            "Key": "Description",
+            "Value": "A record that has been recorded in the South of France and finalized at the West Coast of the USA. It is a double album that features one record side with mainly acoustic songs."
+          },
+          {
+            "Key": "Status",
+            "Value": "In Production"
+          },
+          {
+            "Key": "Links",
+            "Value": [
+              "http://www.edcba.com",
+              "http://www.zyxwv.com"
+            ]
+          }
+        ]
+      }   ,
+{
+        "Attributes": [
+          {
+            "Key": "ID",
+            "Value": "3"
+          },
+          {
+            "Key": "Name",
+            "Value": "Some Girls"
+          },
+          {
+            "Key": "Description",
+            "Value": "A record that has been recorded at the end of the seventies."
+          },
+          {
+            "Key": "Status",
+            "Value": "In Production"
+          },
+          {
+            "Key": "Links",
+            "Value": [
+              "http://www.edcba.com",
+              "http://www.zyxwv.com"
+            ]
+          }
+        ]
+      }      
+    ]
+  }
+}

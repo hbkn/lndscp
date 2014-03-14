@@ -1,0 +1,22 @@
+<div>
+  <br/>
+
+{{ctrl.changeMainSection('applications')}}
+<div ng-if="ctrl.applications != null">
+
+    <div class="input-group input-group-sm">
+      <span class="input-group-addon">Filter</span>
+      <input class="form-control" type="text" placeholder="<text to search>" ng-model="ctrl.appNameFilterSelector"/>
+      <span class="input-group-addon" ng-click="ctrl.clearAppNameFilterSelector()"><i class="glyphicon glyphicon-remove"></i></span>
+    </div>     
+    <br/>
+    <div ng-repeat="appComp in ctrl.applications | filter:{name:ctrl.appNameFilterSelector}">
+      <div class="alert alert-info alert-dismissable fade in">         
+        <a href="#/appComp/{{appComp.data.id}}/view/">
+          <b>{{appComp.data.getAttVal('Name')}}</b> : {{appComp.data.shortIntroForAtt('Description', 120)}}
+        </a>
+      </div>
+    </div>
+<hr>
+
+</div>

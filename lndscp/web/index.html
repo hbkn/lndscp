@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lndscp</title>
+    <link rel="stylesheet" href="css/lndscp.css">
+    <link rel="stylesheet" href="../packages/bootjack/css/bootstrap.css">
+    
+  </head>
+  <body>
+  <div app-controller>
+  <ul id="tabs" class="nav nav-tabs">
+    <li>
+      <b>Landscape</b> v00.01 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </li>
+    <li class="{{ctrl.tabClassForMainSection('applications')}}">
+      <a href="#/applications" data-toggle="tab">
+        Applications
+        <span is="badge-span" theText="..." id="applicationsTabTitleBadge"></span>
+      </a>
+    </li>
+    <li class="{{ctrl.tabClassForMainSection('services')}}">
+      <a href="#/services" data-toggle="tab">
+        Services
+        <span is="badge-span" theText="..." id="servicesTabTitleBadge"></span>
+      </a>
+    </li>
+   
+  </ul>      
+        <ng-view></ng-view>
+        <hr>
+        <div ng-repeat="msg in ctrl.messages | filter:reverse">
+          {{msg}}
+        </div>          
+    </div>
+
+    <script type="application/dart" src="lndscp.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>

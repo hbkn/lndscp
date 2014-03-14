@@ -1,0 +1,22 @@
+<span id='myDiv'>
+  <span ng-if="cmp.readonly">
+    <span class="add-on">{{cmp.attribute.description.name}}: </span>
+    <span ng-if="cmp.attribute.isText">
+      {{cmp.attribute.value}}
+    </span>
+    <span ng-if="cmp.attribute.isLinkWithDescription">
+      <a href="{{cmp.attribute.value.link}}" target="_blank">
+        <span class="glyphicon glyphicon-new-window  btn-xs">
+        </span> {{cmp.attribute.value.name}}
+      </a>
+      {{cmp.attribute.value.description}}
+    </span>
+  </span>
+  
+  <span ng-if="!cmp.readonly">
+    <span class="input-prepend">
+      <span class="add-on">{{cmp.attribute.description.name}}: </span>
+      <input class="span2" id="{{cmp.attribute.description.name}}" type="text" value="{{cmp.attribute.value}}" placeholder="<{{cmp.attribute.description.name}}>">
+    </span>
+  </span>
+</span>
