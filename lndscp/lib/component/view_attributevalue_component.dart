@@ -3,7 +3,7 @@ library view_attributevalue_component;
 import 'package:angular/angular.dart';
 import 'dart:html';
 import '../model/model.dart';
-
+import 'view_objectdata_component.dart';
 
 @NgComponent(
     selector: 'view-attributevalue',
@@ -13,19 +13,29 @@ import '../model/model.dart';
 )
 class ViewAttributeValueComponent implements NgShadowRootAware {
   
-  @NgTwoWay('objectattribute')
+    ViewObjectDataComponent _viewObjDataComp;
+
+  @NgOneWay('objectattribute')
   ObjectAttribute attribute;  
 
-  @NgTwoWay('readonly')
+  @NgOneWay('readonly')
   bool readonly = true;  
 
   ViewAttributeValueComponent() {
   }
   
+  @NgOneWay('view-objectdata-component')
+  set viewObjDataComp(var val) {
+    _viewObjDataComp = val;
+    val.registerAttributeValueView(this);
+  }
+  get viewObjDataComp => _viewObjDataComp; 
   void onShadowRoot(ShadowRoot shadowRoot) {
+/*    
     shadowRoot.querySelector('#myDiv').children.add(
 //      new ParagraphElement()..text = 'Dynamically added content'
       new SpanElement()..text = ''
     );
+*/    
   }
 }

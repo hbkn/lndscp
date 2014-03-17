@@ -3,6 +3,7 @@ part of model;
 class ObjectData {  
   ObjectType type;
   Map<String, ObjectAttribute> attributes = {};
+  List<ObjectAttribute> _attributeList;
   
   get id {
     String id = getAttVal(type.configuration.idName);
@@ -11,7 +12,10 @@ class ObjectData {
   set id(String val) {
     setAttWithJsonValue(type.configuration.idName, val);    
   }
-  ObjectData();
+  
+  ObjectData() {
+//    owner.data = this;
+  }
   ObjectData.fromJsonMap(ObjectType this.type, Map data) {
     _parseJsonMap( data);
   }
@@ -26,6 +30,17 @@ class ObjectData {
         setAttWithJsonValue(key, value);
       }      
     }
+//    owner.onDataChanged();
+  }
+  
+  List<ObjectAttribute> get attributeList {
+    if (this._attributeList == null) {
+      _attributeList = [];
+      for (var val in attributes.values) {
+        _attributeList.add(val);
+      }
+    }
+    return _attributeList;
   }
   setAttWithJsonValue(String key, var value) {
     AttributeDescription attDesc = this.type.attributeDescriptions[key];
@@ -46,6 +61,8 @@ class ObjectData {
     else {
       att.value = attDesc.attributeType.valueFromJson(value);
     }
+    _attributeList = null;
+//    owner.onDataChanged();
   }  
   getAttVal(String name) {    
     ObjectAttribute att = attributes[name];

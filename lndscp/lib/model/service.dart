@@ -10,7 +10,10 @@ class Service {
   String toString() {
     return name;
   }
-  String get name {
-    return data.getAttVal(data.type.configuration.nameName);
+  String get name => data.getAttVal(data.type.configuration.nameName);
+/*
+  onDataChanged() {
+    name = data.getAttVal(data.type.configuration.nameName);
   }
+  */  
 }

@@ -9,10 +9,14 @@
     
   </head>
   <body>
-  <div app-controller>
+  <div app-controller class="well well-sm">
+  <span ng-if="ctrl.loading">
+    loading...
+  </span>
+  <span ng-if="!ctrl.loading">
   <ul id="tabs" class="nav nav-tabs">
     <li>
-      <b>Landscape</b> v00.01 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <b>Landscape</b> v00.02 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </li>
     <li class="{{ctrl.tabClassForMainSection('applications')}}">
       <a href="#/applications" data-toggle="tab">
@@ -26,9 +30,16 @@
         <span is="badge-span" theText="..." id="servicesTabTitleBadge"></span>
       </a>
     </li>
+    <li class="{{ctrl.tabClassForMainSection('people')}}">
+      <a href="#/people" data-toggle="tab">
+        People
+        <span is="badge-span" theText="..." id="peopleTabTitleBadge"></span>
+      </a>
+    </li>
    
-  </ul>      
+  </ul>    
         <ng-view></ng-view>
+  </span>
         <hr>
         <div ng-repeat="msg in ctrl.messages | filter:reverse">
           {{msg}}

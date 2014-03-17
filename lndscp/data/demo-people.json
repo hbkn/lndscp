@@ -46,7 +46,9 @@
           {
             "Key": "LastName",
             "Value": "Watts"
-          },
+          }
+        ]
+      },
       {
         "Attributes": [
           {
@@ -60,7 +62,9 @@
           {
             "Key": "LastName",
             "Value": "Jones"
-          },
+          }
+        ]
+      },
       {
         "Attributes": [
           {
@@ -74,10 +78,9 @@
           {
             "Key": "LastName",
             "Value": "Wyman"
-          }          
+          }
         ]
-      }      
-      
+      }
     ]
   }
 }

@@ -3,7 +3,7 @@ library view_objectdata_component;
 import 'package:angular/angular.dart';
 import 'dart:html';
 import '../model/model.dart';
-
+import 'view_attributevalue_component.dart';
 
 @NgComponent(
     selector: 'view-objectdata',
@@ -13,15 +13,13 @@ import '../model/model.dart';
 )
 class ViewObjectDataComponent implements NgShadowRootAware {
   
-  @NgTwoWay('objectdata-map')
-  Map<String, ObjectData> dataMap;  
-  @NgTwoWay('readonly')
+  Map _objectMap;  
+  @NgOneWay('readonly')
   bool readonly = true;  
-
-  @NgTwoWay('editLink')
+  @NgOneWay('editLink')
   String theEditLink;  
-
   String _id;
+  Map<String, ViewAttributeValueComponent> attributeViews = {};
   
   ViewObjectDataComponent(RouteProvider routeProvider) {
     _id = routeProvider.parameters['id'];
@@ -30,22 +28,46 @@ class ViewObjectDataComponent implements NgShadowRootAware {
   bool get hasEditLink => theEditLink != null;
   String get editLink => theEditLink.replaceAll('<id>', _id);
 
-  ObjectData get data  {
-    ObjectData val = dataMap[_id];
-    return val;
+  get objectMap {
+    return _objectMap;
   }
-  
-  List<ObjectAttribute> get attributes {
-    List<ObjectAttribute> list = [];
-    for (ObjectAttribute simAtt in data.attributes.values) {
-      list.add(simAtt);
+  @NgOneWay('object-map')
+  set objectMap(var val) {
+     _objectMap = val;
+     print('just set objectMap: $val');
+  }  
+  get object  {
+      print('get obect ($_id): objectMap is $objectMap');
+      if (objectMap == null)
+        return null;
+      return objectMap[_id];
+  }
+  ObjectData get data {
+    if (object == null)
+      return null;
+    return object.data; 
+  }
+  void save() {
+    print('save');
+    ObjectData data = this.data;
+    for (var att in data.attributeList) {
+      String attName = att.description.name;
+      ViewAttributeValueComponent attView = attributeViews[attName];
+      if (attView == null) {
+        print("$attName : view is null");
+      }
+      else {
+        print('$attName : old = ${att.value} ');        
+      }
+      
+     print("$att"); 
     }
-    return list;
   }
-
   void onShadowRoot(ShadowRoot shadowRoot) {
-    shadowRoot.querySelector('#myDiv').children.add(
-        new SpanElement()..text = ''
-    );
+    print('onShadowRoot: objectMap=$objectMap');
+  }
+  void registerAttributeValueView(ViewAttributeValueComponent attView) {
+//   print('registered $attView'); 
+   attributeViews[attView.attribute.description.name] = attView;
   }
 }

@@ -17,4 +17,7 @@ class LinkWithDescription {
   String toHtml() {
     return '<a href=\"$link\">$name</a>:  $description';
   }
+  bool equals(val) {
+    return this.toString() == val.toString();
+  }
 }

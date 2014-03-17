@@ -1,17 +1,20 @@
-<div id='myDiv'>
-  <h3>{{cmp.data.getAttVal('Name')}}</h3>
-    <div><strong>ID: </strong>{{cmp.data.id}}</div>
-    <ul>    
-      <li ng-repeat="att in cmp.attributes">
-<!--        <view-attributevalue objectattribute="att"></view-attributevalue> -->
-        <view-attributevalue objectattribute="att" readonly="cmp.readonly"></view-attributevalue>
-      </li>
-    </ul>
+  <h3>{{cmp.object.name}}</h3>
+    
+<form class="form-horizontal" role="form" ng-submit="cmp.save()">
+
+      <div ng-repeat="att in cmp.data.attributeList"  class="form-group">
+        <view-attributevalue objectattribute="att" readonly="cmp.readonly" view-objectdata-component="cmp"></view-attributevalue>
+      </div>
+
   <span ng-if="cmp.hasEditLink">    
     <a class="extra-space" href="{{cmp.editLink}}">
       <input type="button" value="Edit">
     </a>
-  </span> 
+  </span>       
+  <span ng-if="!cmp.readonly">    
+    <a class="extra-space">
+      <input type="submit" value="Save">
+    </a>
+  </span>       
   
-  
-</div>
+</form>

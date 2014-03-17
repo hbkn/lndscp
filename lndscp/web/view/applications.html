@@ -10,7 +10,7 @@
       <span class="input-group-addon" ng-click="ctrl.clearAppNameFilterSelector()"><i class="glyphicon glyphicon-remove"></i></span>
     </div>     
     <br/>
-    <div ng-repeat="appComp in ctrl.applications | filter:{name:ctrl.appNameFilterSelector}">
+    <div ng-repeat="appComp in ctrl.applications | nameFilter:ctrl.appNameFilterSelector track by $id">
       <div class="alert alert-info alert-dismissable fade in">         
         <a href="#/appComp/{{appComp.data.id}}/view/">
           <b>{{appComp.data.getAttVal('Name')}}</b> : {{appComp.data.shortIntroForAtt('Description', 120)}}

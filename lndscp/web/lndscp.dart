@@ -2,7 +2,8 @@
 
 import 'package:angular/angular.dart';
 import '../lib/service/query_service.dart'; 
-import '../lib/controller/app_controller.dart'; 
+import '../lib/controller/app_controller.dart';
+import '../lib/filter/name_filter.dart'; 
 import '../lib/router/app_router.dart'; 
 import '../lib/component/view_objectdata_component.dart'; 
 import '../lib/component/view_attributevalue_component.dart'; 
@@ -31,6 +32,7 @@ class MyAppModule extends Module {
     type(RouteInitializer, implementedBy: AppRouteInitializer);    
     type(QueryService);    
     type(AppController);    
+    type(NameFilter);        
     type(ViewAttributeValueComponent);        
     type(ViewObjectDataComponent);        
     factory(NgRoutingUsePushState,

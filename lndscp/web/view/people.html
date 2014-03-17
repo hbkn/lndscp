@@ -1,0 +1,23 @@
+<div>
+  <br/>
+
+{{ctrl.changeMainSection('people')}}
+<div ng-if="ctrl.people != null">
+
+    <div class="input-group input-group-sm">
+      <span class="input-group-addon">Filter</span>
+      <input class="form-control" type="text" placeholder="<text to search>" ng-model="ctrl.personFilterSelector"/>
+      <span class="input-group-addon" ng-click="ctrl.clearPersonFilterSelector()"><i class="glyphicon glyphicon-remove"></i></span>
+    </div>     
+    <br/>
+<!--    <div ng-repeat="person in ctrl.people | filter:{name:ctrl.personFilterSelector}">  -->
+    <div ng-repeat="person in ctrl.people | nameFilter:ctrl.personFilterSelector track by $id">    
+      <div class="alert alert-info alert-dismissable fade in">         
+        <a href="#/person/{{person.data.id}}/view/">
+          {{person.data.getAttVal('FirstName')}} {{person.data.getAttVal('LastName')}}
+        </a>
+      </div>
+    </div>
+<hr>
+
+</div>

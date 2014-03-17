@@ -21,7 +21,13 @@ class ApplicationComponent {
   
   ApplicationComponent() {
   }
-
+  
+  String get id => data.id;
+  
+  String get name {
+    return data.getAttVal(data.type.configuration.nameName);
+  }
+  
   bool isTmp() {
     return false;
   }
@@ -37,8 +43,5 @@ class ApplicationComponent {
       return this;
     }
     return parent.topApplication;
-  }
-  String get name {
-    return data.getAttVal(data.type.configuration.nameName);
   }
 }

@@ -59,7 +59,9 @@ class QueryService {
             Map resultMap = {};
             ObjectType appObjectType = configuration.objectTypes['ApplicationComponent'];
             for (Map appMap in appsList) {
+              ApplicationComponent appComp = new ApplicationComponent();
               ObjectData data = new ObjectData.fromJsonMap(appObjectType, appMap);
+              appComp. data = data;
               // Workaround !!!
               if (_prefix == 'emt-') {
                String id = '${appMap[configuration.idName]}';
@@ -69,8 +71,6 @@ class QueryService {
                                      if (name != null)
                                        data.setAttWithJsonValue('Name', name);
               }
-              ApplicationComponent appComp = new ApplicationComponent();
-              appComp.data = data;
               result.add(appComp);
               resultMap[appComp.data.id] = appComp;
             }
@@ -103,8 +103,9 @@ class QueryService {
             Map resultMap = {};
             ObjectType serviceType = configuration.objectTypes['Service'];
             for (Map objMap in objList) {
+              Service obj = new Service();
               ObjectData data = new ObjectData.fromJsonMap(serviceType, objMap);
-              
+              obj.data = data;
               // Workaround !!!
               if (_prefix == 'emt-') {
                String id = '${objMap[configuration.idName]}';
@@ -114,8 +115,6 @@ class QueryService {
                                      if (name != null)
                                        data.setAttWithJsonValue('Name', name);
               }
-              Service obj = new Service();
-              obj.data = data;
               result.add(obj);
               resultMap[obj.data.id] = obj;
             }
@@ -124,7 +123,7 @@ class QueryService {
           });
   }
   Future _loadPeopleFromLocalServerNew() {
-    if (this.services != null)
+    if (this.people != null)
       return  new Future.sync((){});
     String url = '../data/${_prefix}people.json';
     return _http.get(url)
@@ -134,10 +133,10 @@ class QueryService {
             List objList = resultMsg['People'];           
             List result = [] ;
             Map resultMap = {};
-            ObjectType serviceType = configuration.objectTypes['People'];
+            ObjectType serviceType = configuration.objectTypes['Person'];
             for (Map objMap in objList) {
-              ObjectData data = new ObjectData.fromJsonMap(serviceType, objMap);
               Person obj = new Person();
+              ObjectData data = new ObjectData.fromJsonMap(serviceType, objMap);
               obj.data = data;
               result.add(obj);
               resultMap[obj.data.id] = obj;

@@ -1,6 +1,18 @@
-<span id='myDiv'>
+  <span ng-if="!cmp.readonly">  
+    <span class="input-group input-group-sm">
+      <span class="input-group-addon">{{cmp.attribute.description.name}}</span>
+      <span ng-if="cmp.attribute.isText">
+        <input type="text" class="form-control" placeholder="<{{cmp.attribute.description.name}}>" value="{{cmp.attribute.value}}">
+      </span>
+      <span ng-if="cmp.attribute.isLinkWithDescription">
+        <input type="text" class="form-control" id="{{cmp.attribute.description.name}}" value="{{cmp.attribute.value}}" placeholder="<{{cmp.attribute.description.name}}>" >
+      </span>      
+    </span>    
+  </span>
+
   <span ng-if="cmp.readonly">
-    <span class="add-on">{{cmp.attribute.description.name}}: </span>
+   <div class="col-sm-10">
+    <label for="inputPassword3" class="col-sm-2 control-label">{{cmp.attribute.description.name}}</label>
     <span ng-if="cmp.attribute.isText">
       {{cmp.attribute.value}}
     </span>
@@ -11,12 +23,6 @@
       </a>
       {{cmp.attribute.value.description}}
     </span>
+   </div>
   </span>
   
-  <span ng-if="!cmp.readonly">
-    <span class="input-prepend">
-      <span class="add-on">{{cmp.attribute.description.name}}: </span>
-      <input class="span2" id="{{cmp.attribute.description.name}}" type="text" value="{{cmp.attribute.value}}" placeholder="<{{cmp.attribute.description.name}}>">
-    </span>
-  </span>
-</span>

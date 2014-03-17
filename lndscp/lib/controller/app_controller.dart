@@ -17,24 +17,27 @@ class AppController {
   bool loading = true;
 //  Future serviceLoader;
   
+  static String applications_SECTION = 'applications';
+  static String services_SECTION = 'services';
+  static String people_SECTION = 'people';
+    
   
   Configuration get configuration => _queryService.configuration;
-  List<ApplicationComponent> get applications  {
-    List list = _queryService.applications;
-    if (list == null)
-      print('application list is null');
-    return list;    
-  }
+  List<ApplicationComponent> get applications  =>_queryService.applications;  
   Map<String, ApplicationComponent> get applicationMap {
     return _queryService.applicationMap;  
   }
   List<Service> get services => _queryService.services;
   Map<String, Service> get serviceMap => _queryService.serviceMap;
+  List<Person> get people => _queryService.people;
+  Map<String, Person> get peopleMap => _queryService.peopleMap;
   
   
   String appNameFilterSelector = '';
+  String personFilterSelector = '';
   
   AppController(QueryService this._queryService) {
+    loading = true;
     print('${new DateTime.now()} - loading data ...');
     messages.insert(0, 'loading data at ${new DateTime.now()} ...');
     _queryService.loadConfiguration()
@@ -62,8 +65,19 @@ class AppController {
   
   Configuration get config => _queryService.configuration;
   
+  bool appNameFilterString(String name) {
+    return true;
+  }
+  
+  bool doesAppNameContainsStr(ApplicationComponent appComp) {
+    return true;
+//    return appComp.name.contains(appNameFilterSelector);
+  }
   void clearAppNameFilterSelector() {
     appNameFilterSelector = '';
+  }  
+  void clearPersonFilterSelector() {
+    personFilterSelector = '';
   }  
   debug(var object) {
     print(object);
@@ -85,7 +99,8 @@ class AppController {
   }
   
   String tabClassForMainSection(String section) {    
-    if (section == activeMainSection) {
+//    if (section == activeMainSection) {
+    if (true) {
       return 'active';
     }
     return '';

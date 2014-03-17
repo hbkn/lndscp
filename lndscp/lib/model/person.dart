@@ -4,16 +4,14 @@ class Person {
   static String TYPE = 'Person';
   
   ObjectData data;
-  
-  List<ApplicationComponent> primaryApps = [];
-  List<ApplicationComponent> secondaryApps = [];
-  
+
   Person() {
   }
   String get firstName {
-    return data.getAttVal('firstName');
+    return data.getAttVal('FirstName');
   }
   String get lastName {
-    return data.getAttVal('lastName');
+    return data.getAttVal('LastName');
   }
+  String get name =>  '$firstName $lastName';
 }
